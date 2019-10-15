@@ -7,18 +7,22 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { UserTableComponent } from './user-table/user-table.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     AdminPageComponent,
-    UsersListComponent
+    UsersListComponent,
+    UserTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

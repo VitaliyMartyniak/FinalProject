@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       age: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(13), Validators.pattern( /^[+]?[0-9]+$/)]],
+      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern( /[0-9]+$/)]],
       companyName: ['', Validators.required],
       companyCatchPhrase: ['', Validators.required],
       companyBs: ['', Validators.required],
