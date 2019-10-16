@@ -9,6 +9,8 @@ import { UsersListComponent } from './users-list/users-list.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { UserTableComponent } from './user-table/user-table.component';
 import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import {HttpClientModule} from '@angular/common/http';
     RegistrationComponent,
     AdminPageComponent,
     UsersListComponent,
-    UserTableComponent
+    UserTableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatBottomSheetModule
   ],
   providers: [],
   bootstrap: [AppComponent]

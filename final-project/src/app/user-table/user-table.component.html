@@ -6,6 +6,7 @@
     <th scope="col">Last Name</th>
     <th scope="col">Age</th>
     <th scope="col">Phone</th>
+    <th scope="col">Company</th>
   </tr>
   </thead>
   <tbody>
@@ -15,6 +16,10 @@
     <td>{{ user.lastName }}</td>
     <td>{{ user.age }}</td>
     <td>{{ user.phone }}</td>
+    <button (click)="openBottomSheet(user.company)">Open file</button>
+<!--    <td>{{ user.company.companyName }}</td>-->
+<!--    <td>{{ user.company.companyCatchPhrase }}</td>-->
+<!--    <td>{{ user.company.companyBs }}</td>-->
   </tr>
   </tbody>
 </table>
