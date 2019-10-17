@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../interfaces/user-interface';
 import {UserTableService} from '../user-table.service';
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
+import {MatBottomSheet} from '@angular/material/bottom-sheet';
+import {BottomSheetComponent} from '../bottom-sheet/bottom-sheet.component';
 
 @Component({
   selector: 'app-user-table',
@@ -38,8 +38,9 @@ export class UserTableComponent implements OnInit {
     });
   }
 
-  openBottomSheet(object): void {
-    console.log(object);
+  openBottomSheet(name, phrase, bs): void {
+    this.bottomSheet.open(BottomSheetComponent, {
+      data: [name, phrase, bs],
+    });
   }
-
 }

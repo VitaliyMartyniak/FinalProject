@@ -16,10 +16,7 @@
     <td>{{ user.lastName }}</td>
     <td>{{ user.age }}</td>
     <td>{{ user.phone }}</td>
-    <button (click)="openBottomSheet(user.company)">Open file</button>
-<!--    <td>{{ user.company.companyName }}</td>-->
-<!--    <td>{{ user.company.companyCatchPhrase }}</td>-->
-<!--    <td>{{ user.company.companyBs }}</td>-->
+    <button type="button" class="btn btn-primary" (click)="openBottomSheet(user.company.companyName, user.company.companyCatchPhrase, user.company.companyBs)">Company information</button>
   </tr>
   </tbody>
 </table>
