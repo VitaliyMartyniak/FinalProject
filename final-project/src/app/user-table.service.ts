@@ -16,7 +16,7 @@ export class UserTableService {
     return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 
-  // sendNewUser(user: User) {
-  //   this.newUserSubject$.next(user);
-  // }
+  sendNewUser(user: User) {
+    this.newUserSubject$.next(user);
+  }
 }

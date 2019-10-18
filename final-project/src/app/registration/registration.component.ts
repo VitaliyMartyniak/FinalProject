@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserTableService} from '../user-table.service';
+import {User} from "../interfaces/user-interface";
 
 @Component({
   selector: 'app-registration',
@@ -9,8 +11,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   submitted: boolean = false;
-
-  constructor(private formBuilder: FormBuilder) { }
+  newUser: User;
+  constructor(private formBuilder: FormBuilder, public userTableService: UserTableService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -28,11 +30,24 @@ export class RegistrationComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  onSubmit() {
+  onSubmit(firstName, lastName, age, phone, companyName, companyCatchPhrase, companyBs) {
     this.submitted = true;
-
     if (this.registerForm.invalid) {
       return;
     }
+
+    this.newUser = {
+      firstName: firstName,
+      lastName: lastName,
+      age: parseInt(age, 10),
+      phone: phone,
+      company: {
+        companyName: companyName,
+          companyCatchPhrase: companyCatchPhrase,
+          companyBs: companyBs,
+      }
+    };
+
+    this.userTableService.sendNewUser(this.newUser);
   }
 }
