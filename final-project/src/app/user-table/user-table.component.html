@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table mt-4">
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -7,6 +7,8 @@
     <th scope="col">Age</th>
     <th scope="col">Phone</th>
     <th scope="col">Company</th>
+    <th scope="col" *ngIf="router.url == '/admin-page'">Edit</th>
+    <th scope="col" *ngIf="router.url == '/admin-page'">Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -16,7 +18,55 @@
     <td>{{ user.lastName }}</td>
     <td>{{ user.age }}</td>
     <td>{{ user.phone }}</td>
-    <button type="button" class="btn btn-primary" (click)="openBottomSheet(user.company.companyName, user.company.companyCatchPhrase, user.company.companyBs)">Company information</button>
+    <td><button type="button" class="btn btn-primary" (click)="openBottomSheet(user.company.companyName, user.company.companyCatchPhrase, user.company.companyBs)">Company information</button></td>
+    <td *ngIf="router.url == '/admin-page'"><button type="button" class="btn btn-warning" data-target="#editModal" data-toggle="modal" (click)="sendDataToEditModal(user)">Edit</button></td>
+    <td *ngIf="router.url == '/admin-page'" (click)="delete(i)" ><button type="button" class="btn btn-danger">Delete</button></td>
+
+    <div class="modal" id="editModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title">Edit user</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <form>
+            <div class="modal-body">
+
+              <div class="form-group">
+                <input #firstName type="text" class="form-control" placeholder="first name goes here" value="">
+              </div>
+              <div class="form-group">
+                <input #lastName type="text" class="form-control" placeholder="second name goes here" value="">
+              </div>
+              <div class="form-group">
+                <input #age type="text" class="form-control" placeholder="age goes here" value="">
+              </div>
+              <div class="form-group">
+                <input #phone type="text" class="form-control" placeholder="phone number goes here" value="">
+              </div>
+              <div class="form-group">
+                <input #companyName type="text" class="form-control" placeholder="company name goes here" value="">
+              </div>
+              <div class="form-group">
+                <input #companyCatchPhrase type="text" class="form-control" placeholder="company phrase goes here" value="">
+              </div>
+              <div class="form-group">
+                <input #companyBs type="text" class="form-control" placeholder="company bs goes here" value="">
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" data-dismiss="modal"
+                      (click)="editElement(firstName.value, lastName.value, age.value, phone.value, companyName.value, companyCatchPhrase.value, companyBs.value)">Save</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
   </tr>
   </tbody>
 </table>
