@@ -7,11 +7,15 @@ import {Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class UserTableService {
+  public darkThemeSubject$ = new Subject<boolean>();
   public newUserSubject$ = new Subject<User>();
-
   public users: User[] = [];
 
   constructor(public http: HttpClient) {
+  }
+
+  setNewThemeStatus(darkThemeStatus) {
+    this.darkThemeSubject$.next(darkThemeStatus);
   }
 
   isCachedUsers() {
