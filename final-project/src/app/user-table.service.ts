@@ -9,7 +9,21 @@ import {Subject} from 'rxjs';
 export class UserTableService {
   public newUserSubject$ = new Subject<User>();
 
+  public users: User[] = [];
+
   constructor(public http: HttpClient) {
+  }
+
+  isCachedUsers() {
+    return this.users.length > 0;
+  }
+
+  getCachedUsers() {
+    return this.users;
+  }
+
+  setCachedUsers(users) {
+    this.users = users;
   }
 
   getUsers() {
@@ -17,6 +31,6 @@ export class UserTableService {
   }
 
   sendNewUser(user: User) {
-    this.newUserSubject$.next(user);
+    this.users.push(user);
   }
 }

@@ -31,36 +31,35 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
 
-          <form>
+          <form [formGroup]="editForm">
             <div class="modal-body">
 
               <div class="form-group">
-                <input #firstName type="text" class="form-control" placeholder="first name goes here" value="">
+                <input #firstName type="text" class="form-control" formControlName="firstName" placeholder="first name goes here">
               </div>
               <div class="form-group">
-                <input #lastName type="text" class="form-control" placeholder="second name goes here" value="">
+                <input #lastName type="text" class="form-control" formControlName="lastName" placeholder="second name goes here">
               </div>
               <div class="form-group">
-                <input #age type="text" class="form-control" placeholder="age goes here" value="">
+                <input #age type="text" class="form-control" formControlName="age" placeholder="age goes here">
               </div>
               <div class="form-group">
-                <input #phone type="text" class="form-control" placeholder="phone number goes here" value="">
+                <input #phone type="text" class="form-control" formControlName="phone" placeholder="phone number goes here">
               </div>
               <div class="form-group">
-                <input #companyName type="text" class="form-control" placeholder="company name goes here" value="">
+                <input #companyName type="text" class="form-control" formControlName="companyName" placeholder="company name goes here">
               </div>
               <div class="form-group">
-                <input #companyCatchPhrase type="text" class="form-control" placeholder="company phrase goes here" value="">
+                <input #companyCatchPhrase type="text" class="form-control" formControlName="companyCatchPhrase" placeholder="company phrase goes here">
               </div>
               <div class="form-group">
-                <input #companyBs type="text" class="form-control" placeholder="company bs goes here" value="">
+                <input #companyBs type="text" class="form-control" formControlName="companyBs" placeholder="company bs goes here">
               </div>
 
             </div>
 
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary" data-dismiss="modal"
-                      (click)="editElement(firstName.value, lastName.value, age.value, phone.value, companyName.value, companyCatchPhrase.value, companyBs.value)">Save</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editElement(firstName.value, lastName.value, age.value, phone.value, companyName.value, companyCatchPhrase.value, companyBs.value)">Save</button>
             </div>
           </form>
 

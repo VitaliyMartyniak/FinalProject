@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserTableService} from '../user-table.service';
-import {User} from "../interfaces/user-interface";
+import {User} from '../interfaces/user-interface';
 
 @Component({
   selector: 'app-registration',
@@ -48,6 +48,10 @@ export class RegistrationComponent implements OnInit {
       }
     };
 
+    this.newUser['name'] = this.newUser.firstName + ' ' + this.newUser.lastName;
+    this.newUser['company']['name'] =  this.newUser.company.companyName;
+    this.newUser['company']['catchPhrase'] =  this.newUser.company.companyCatchPhrase;
+    this.newUser['company']['bs'] =  this.newUser.company.companyBs;
     this.userTableService.sendNewUser(this.newUser);
   }
 }
