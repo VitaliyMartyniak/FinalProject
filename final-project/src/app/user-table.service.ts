@@ -46,4 +46,8 @@ export class UserTableService {
   sendNewUser(user: User) {
     this.users.push(user);
   }
+
+  getTodos() {
+    return this.http.get('https://jsonplaceholder.typicode.com/todos');
+  }
 }

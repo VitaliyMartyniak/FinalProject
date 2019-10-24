@@ -1,6 +1,7 @@
 import {Component, ViewChild, AfterViewInit, OnInit} from '@angular/core';
 import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import {UserTableService} from './user-table.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   modalReference: NgbModalRef;
   @ViewChild ('content' , {static: false}) content;
   public darkThemeMode: boolean = false;
-  constructor(private modalService: NgbModal, public userTableService: UserTableService) {}
+  constructor(private modalService: NgbModal, public userTableService: UserTableService, public router: Router) {}
 
   ngAfterViewInit() {
     this.modalReference = this.modalService.open(this.content, { centered: true });

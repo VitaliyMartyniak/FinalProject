@@ -1,0 +1,35 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h4 class="modal-title">To Do List</h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Status</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let todo of todos; index as i">
+              <td>{{ i + 1 }}</td>
+              <td>{{ todo.title }}</td>
+              <td><input type="checkbox" #todoCheckBox [checked]="todo.completed" (click)="changeTodoStatus(todo)"></td>
+              <button type="button" class="btn btn-danger" [ngClass]="todo.completed === true ? '' : 'disabled'" (click)="delete(todo, i)">&times;</button>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Return to table</button>
+      </div>
+
+  </div>
+</div>

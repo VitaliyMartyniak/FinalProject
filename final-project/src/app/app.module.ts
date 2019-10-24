@@ -15,6 +15,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatListModule} from '@angular/material/list';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { FormsModule } from '@angular/forms';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     UsersListComponent,
     UserTableComponent,
     BottomSheetComponent,
+    TodoListComponent,
   ],
   imports: [
     BrowserModule,
