@@ -10,8 +10,17 @@ export class UserTableService {
   public darkThemeSubject$ = new Subject<boolean>();
   public newUserSubject$ = new Subject<User>();
   public users: User[] = [];
+  public tableHasChanges: boolean = false;
 
   constructor(public http: HttpClient) {
+  }
+
+  setTableHasChanges() {
+    this.tableHasChanges = true;
+  }
+
+  getTableHasChanges() {
+    return this.tableHasChanges;
   }
 
   setNewThemeStatus(darkThemeStatus) {

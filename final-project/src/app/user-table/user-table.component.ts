@@ -17,11 +17,12 @@ export class UserTableComponent implements OnInit, OnDestroy {
   badUsers: { phone: string; name: string; company: { bs: string; catchPhrase: string; name: string }; age: number }[] = [];
   editedUser: User;
 
-  constructor(public userTableService: UserTableService, private bottomSheet: MatBottomSheet, public router: Router, private formBuilder: FormBuilder) {
+  constructor(public userTableService: UserTableService, private bottomSheet: MatBottomSheet,
+              public router: Router, private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
-    if (this.userTableService.isCachedUsers()) {
+    if (this.userTableService.isCachedUsers() || this.userTableService.getTableHasChanges()) {
       this.users = this.userTableService.getCachedUsers();
       this.mapUsers(this.users);
     } else this.userTableService.getUsers().subscribe((users: any[]) => {
@@ -114,5 +115,6 @@ export class UserTableComponent implements OnInit, OnDestroy {
       };
     });
     this.userTableService.setCachedUsers(this.badUsers);
+    this.userTableService.setTableHasChanges();
   }
 }
