@@ -1,7 +1,9 @@
 <div [ngClass]="{darkThemeClass:darkThemeMode}">
   <div class="container">
-    <h1>Final Project</h1>
-
+    <div class="row justify-content-between mx-2">
+      <h1>Final Project</h1>
+      <button type="button" class="btn btn-outline-primary" (click)="clearLocalStorage()">Log Out</button>
+    </div>
 
     <ng-template #content let-modal>
       <div class="modal-header mx-2">
