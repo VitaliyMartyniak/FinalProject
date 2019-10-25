@@ -7,6 +7,7 @@ import {Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class UserTableService {
+  public darkMode: boolean = false;
   public darkThemeSubject$ = new Subject<boolean>();
   public newUserSubject$ = new Subject<User>();
   public users: User[] = [];
@@ -23,7 +24,12 @@ export class UserTableService {
     return this.tableHasChanges;
   }
 
+  getThemeStatus() {
+    return this.darkMode;
+  }
+
   setNewThemeStatus(darkThemeStatus) {
+    this.darkMode = darkThemeStatus;
     this.darkThemeSubject$.next(darkThemeStatus);
   }
 

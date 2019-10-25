@@ -53,17 +53,17 @@ export class UserTableComponent implements OnInit, OnDestroy {
     });
   }
 
-  editElement(firstName, lastName, age, phone, companyName, companyCatchPhrase, companyBs) {
+  editElement() {
     if (this.editForm.invalid) {
       return;
     }
-    this.editedUser.firstName = firstName;
-    this.editedUser.lastName = lastName;
-    this.editedUser.age = parseInt(age, 10);
-    this.editedUser.phone = phone;
-    this.editedUser.company.companyName = companyName;
-    this.editedUser.company.companyCatchPhrase = companyCatchPhrase;
-    this.editedUser.company.companyBs = companyBs;
+    this.editedUser.firstName = this.editForm.value.firstName;
+    this.editedUser.lastName = this.editForm.value.lastName;
+    this.editedUser.age = parseInt(this.editForm.value.age, 10);
+    this.editedUser.phone = this.editForm.value.phone;
+    this.editedUser.company.companyName = this.editForm.value.companyName;
+    this.editedUser.company.companyCatchPhrase = this.editForm.value.companyCatchPhrase;
+    this.editedUser.company.companyBs = this.editForm.value.companyBs;
 
     this.userTableService.setCachedUsers(this.users);
   }

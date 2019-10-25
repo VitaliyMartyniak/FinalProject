@@ -37,31 +37,31 @@
             <div class="modal-body">
 
               <div class="form-group">
-                <input #firstName type="text" class="form-control" formControlName="firstName" placeholder="first name goes here">
+                <input type="text" class="form-control" formControlName="firstName" placeholder="first name goes here">
               </div>
               <div class="form-group">
-                <input #lastName type="text" class="form-control" formControlName="lastName" placeholder="second name goes here">
+                <input type="text" class="form-control" formControlName="lastName" placeholder="second name goes here">
               </div>
               <div class="form-group">
-                <input #age type="text" class="form-control" formControlName="age" placeholder="age goes here">
+                <input type="text" class="form-control" formControlName="age" placeholder="age goes here">
               </div>
               <div class="form-group">
-                <input #phone type="text" class="form-control" formControlName="phone" placeholder="phone number goes here">
+                <input type="text" class="form-control" formControlName="phone" placeholder="phone number goes here">
               </div>
               <div class="form-group">
-                <input #companyName type="text" class="form-control" formControlName="companyName" placeholder="company name goes here">
+                <input type="text" class="form-control" formControlName="companyName" placeholder="company name goes here">
               </div>
               <div class="form-group">
-                <input #companyCatchPhrase type="text" class="form-control" formControlName="companyCatchPhrase" placeholder="company phrase goes here">
+                <input type="text" class="form-control" formControlName="companyCatchPhrase" placeholder="company phrase goes here">
               </div>
               <div class="form-group">
-                <input #companyBs type="text" class="form-control" formControlName="companyBs" placeholder="company bs goes here">
+                <input type="text" class="form-control" formControlName="companyBs" placeholder="company bs goes here">
               </div>
 
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editElement(firstName.value, lastName.value, age.value, phone.value, companyName.value, companyCatchPhrase.value, companyBs.value)">Save</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editElement()">Save</button>
             </div>
           </form>
 

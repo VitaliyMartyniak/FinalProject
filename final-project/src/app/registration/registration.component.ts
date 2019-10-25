@@ -30,21 +30,21 @@ export class RegistrationComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  onSubmit(firstName, lastName, age, phone, companyName, companyCatchPhrase, companyBs) {
+  onSubmit() {
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;
     }
 
     this.newUser = {
-      firstName: firstName,
-      lastName: lastName,
-      age: parseInt(age, 10),
-      phone: phone,
+      firstName: this.registerForm.value.firstName,
+      lastName: this.registerForm.value.lastName,
+      age: parseInt(this.registerForm.value.age, 10),
+      phone: this.registerForm.value.phone,
       company: {
-        companyName: companyName,
-          companyCatchPhrase: companyCatchPhrase,
-          companyBs: companyBs,
+        companyName: this.registerForm.value.companyName,
+          companyCatchPhrase: this.registerForm.value.companyCatchPhrase,
+          companyBs: this.registerForm.value.companyBs,
       }
     };
 
