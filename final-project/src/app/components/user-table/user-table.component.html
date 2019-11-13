@@ -1,0 +1,77 @@
+<table class="table mt-4">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">First Name</th>
+    <th scope="col">Last Name</th>
+    <th scope="col">Age</th>
+    <th scope="col">Phone</th>
+    <th scope="col">Company</th>
+    <th scope="col">To Do List</th>
+    <th scope="col" *ngIf="router.url == '/admin-page'">Edit</th>
+    <th scope="col" *ngIf="router.url == '/admin-page'">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users; index as i">
+    <td>{{ i + 1 }}</td>
+    <td>{{ user.firstName }}</td>
+    <td>{{ user.lastName }}</td>
+    <td>{{ user.age }}</td>
+    <td>{{ user.phone }}</td>
+    <td><button type="button" class="btn btn-primary" (click)="openBottomSheet(user.company.companyName, user.company.companyCatchPhrase, user.company.companyBs)">Company information</button></td>
+    <td><button type="button" class="btn btn-info" data-target="#todoModal" data-toggle="modal">To Do List</button></td>
+    <td *ngIf="router.url == '/admin-page'"><button type="button" class="btn btn-warning" data-target="#editModal" data-toggle="modal" (click)="sendDataToEditModal(user)">Edit</button></td>
+    <td *ngIf="router.url == '/admin-page'" (click)="delete(i)"><button type="button" class="btn btn-danger">Delete</button></td>
+
+    <div class="modal" id="editModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title">Edit user</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <form [formGroup]="editForm">
+            <div class="modal-body">
+
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="firstName" placeholder="first name goes here">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="lastName" placeholder="second name goes here">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="age" placeholder="age goes here">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="phone" placeholder="phone number goes here">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="companyName" placeholder="company name goes here">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="companyCatchPhrase" placeholder="company phrase goes here">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="companyBs" placeholder="company bs goes here">
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editElement()">Save</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="todoModal">
+      <app-todo-list></app-todo-list>
+    </div>
+  </tr>
+  </tbody>
+</table>
