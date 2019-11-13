@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {User} from '../interfaces/user-interface';
-import {UserTableService} from '../user-table.service';
+import {User} from '../../interfaces/user-interface';
+import {UserTableService} from '../../services/user-table.service';
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {BottomSheetComponent} from '../bottom-sheet/bottom-sheet.component';
 import {Router} from '@angular/router';

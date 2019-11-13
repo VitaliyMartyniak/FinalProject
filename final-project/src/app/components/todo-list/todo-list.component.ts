@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Todo} from '../interfaces/todo-interface';
-import {UserTableService} from '../user-table.service';
+import {Todo} from '../../interfaces/todo-interface';
+import {UserTableService} from '../../services/user-table.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -13,8 +13,8 @@ export class TodoListComponent implements OnInit {
   constructor(public userTableService: UserTableService) { }
 
   ngOnInit() {
-    this.userTableService.getTodos().subscribe((todo: Todo[]) => {
-      this.todos = todo;
+    this.userTableService.getTodos().subscribe((todos: Todo[]) => {
+      this.todos = todos;
     });
   }
 

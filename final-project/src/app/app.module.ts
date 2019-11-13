@@ -8,14 +8,14 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { UserTableComponent } from './user-table/user-table.component';
+import { UserTableComponent } from './components/user-table/user-table.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatListModule} from '@angular/material/list';
-import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
+import { BottomSheetComponent } from './components/bottom-sheet/bottom-sheet.component';
 import { FormsModule } from '@angular/forms';
-import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [

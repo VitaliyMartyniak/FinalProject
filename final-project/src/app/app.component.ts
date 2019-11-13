@@ -1,6 +1,6 @@
 import {Component, ViewChild, AfterViewInit, OnInit} from '@angular/core';
 import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
-import {UserTableService} from './user-table.service';
+import {UserTableService} from './services/user-table.service';
 import {Router} from '@angular/router';
 
 @Component({

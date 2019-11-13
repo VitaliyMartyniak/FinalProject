@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserTableService} from '../user-table.service';
+import {UserTableService} from '../services/user-table.service';
 import {User} from '../interfaces/user-interface';
 
 @Component({

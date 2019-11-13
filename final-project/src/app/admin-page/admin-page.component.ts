@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserTableService} from '../user-table.service';
+import {UserTableService} from '../services/user-table.service';
 
 @Component({
   selector: 'app-admin-page',
